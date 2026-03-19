@@ -39,18 +39,21 @@ export default function Hero() {
             <p className="text-base text-[#5a5550] max-w-md leading-[1.8]">
               {profile.tagline}
             </p>
-            <div className="flex gap-6 md:justify-end items-end">
+            <div className="flex gap-4 md:justify-end items-center">
               <a
                 href="#contact"
-                className="text-[15px] tracking-[0.08em] uppercase text-[#1a1816] border-b-2 border-[#1a1816] pb-1.5 hover:border-[#b14a32] hover:text-[#b14a32] transition-colors font-medium"
+                className="text-[14px] tracking-[0.1em] uppercase font-semibold bg-[#b14a32] text-white px-7 py-3.5 hover:bg-[#943d28] active:scale-[0.97] transition-all duration-200 shadow-[0_2px_12px_rgba(177,74,50,0.35)] hover:shadow-[0_4px_20px_rgba(177,74,50,0.5)]"
               >
                 Get in Touch
               </a>
               <a
                 href="#projects"
-                className="text-[15px] tracking-[0.08em] uppercase text-[#5a5550] hover:text-[#1a1816] transition-colors"
+                className="text-[14px] tracking-[0.1em] uppercase font-medium text-[#1a1816] border border-[#d0c9c0] px-6 py-3 hover:border-[#b14a32] hover:text-[#b14a32] transition-all duration-200 group"
               >
-                View Work →
+                View Work{" "}
+                <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
+                  →
+                </span>
               </a>
             </div>
           </div>

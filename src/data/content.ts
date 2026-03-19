@@ -53,6 +53,8 @@ export const projects = [
       "Real-time collaboration platform with LLM-powered workflow automation. AI agents handle task routing, conflict resolution, and intelligent notifications.",
     result: "Reduced collaboration latency by 94%. 50K+ concurrent users.",
     stack: ["React", "TypeScript", "Python", "LangChain", "AWS"],
+    link: "#",
+    linkLabel: "View Case Study",
   },
   {
     title: "Gridlock",
@@ -61,6 +63,8 @@ export const projects = [
       "Real-time analytics dashboard with natural language querying. Users describe insights in plain English; the system generates visualizations.",
     result: "Sub-16ms frame times with 10M+ data points.",
     stack: ["React", "D3.js", "GPT-4", "Go", "ClickHouse"],
+    link: "#",
+    linkLabel: "View Case Study",
   },
   {
     title: "Phantom CMS",
@@ -69,6 +73,8 @@ export const projects = [
       "Headless CMS with AI-powered content recommendations, auto-tagging, and intelligent search. GraphQL API with sub-12ms response times.",
     result: "3,400+ GitHub stars. 200+ developers adopted.",
     stack: ["Python", "FastAPI", "GraphQL", "Redis", "OpenAI"],
+    link: "#",
+    linkLabel: "View on GitHub",
   },
   {
     title: "Forge CLI",
@@ -77,6 +83,8 @@ export const projects = [
       "CLI toolkit with AI-assisted scaffolding. Analyzes project context to generate intelligent defaults and suggest architecture patterns.",
     result: "15K+ weekly downloads. 12x faster than Node.js alternatives.",
     stack: ["Rust", "WASM", "GPT-4", "Shell"],
+    link: "#",
+    linkLabel: "View on GitHub",
   },
 ];
 

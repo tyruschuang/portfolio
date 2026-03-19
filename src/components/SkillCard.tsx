@@ -27,7 +27,7 @@ export default function SkillCard({ skill }: { skill: string }) {
   return (
     <motion.button
       onClick={() => setOpen((v) => !v)}
-      className="text-left w-full border transition-colors cursor-pointer"
+      className="text-left w-full border transition-colors cursor-pointer group/skill"
       animate={{
         borderColor: open ? "#b14a32" : "#ddd6ce",
         backgroundColor: open ? "#faf6f2" : "transparent",
@@ -42,13 +42,26 @@ export default function SkillCard({ skill }: { skill: string }) {
         >
           {skill}
         </span>
-        <motion.span
-          animate={{ rotate: open ? 45 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="text-xs text-[#b14a32] ml-2 shrink-0"
-        >
-          +
-        </motion.span>
+        <span className="flex items-center gap-1.5 ml-2 shrink-0">
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: open ? 0 : undefined }}
+            whileHover={{ opacity: 1 }}
+            className="text-[10px] tracking-[0.08em] uppercase text-[#b14a32]/60 hidden md:inline opacity-0 group-hover/skill:opacity-100 transition-opacity duration-200"
+          >
+            {open ? "" : "expand"}
+          </motion.span>
+          <motion.span
+            animate={{
+              rotate: open ? 45 : 0,
+              scale: open ? 1.1 : 1,
+            }}
+            transition={{ duration: 0.2 }}
+            className="text-sm font-medium text-[#b14a32] w-5 h-5 flex items-center justify-center rounded-full bg-[#b14a32]/0 group-hover/skill:bg-[#b14a32]/10 transition-colors duration-200"
+          >
+            +
+          </motion.span>
+        </span>
       </div>
       <AnimatePresence>
         {open && description && (

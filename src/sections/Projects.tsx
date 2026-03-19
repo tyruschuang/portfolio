@@ -49,6 +49,19 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-5 text-[13px] tracking-[0.06em] uppercase font-semibold text-[#b14a32] relative group/link"
+                  >
+                    <span className="border-b border-transparent group-hover/link:border-[#b14a32] transition-colors pb-0.5">
+                      {project.linkLabel ?? "View Project"}
+                    </span>
+                    <span className="inline-block transition-transform duration-200 group-hover/link:translate-x-1">
+                      →
+                    </span>
+                  </a>
                 </motion.div>
               </TiltCard>
             ))}
