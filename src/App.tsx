@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import MagneticCursor from "./components/MagneticCursor";
 import ScrollProgress from "./components/ScrollProgress";
 import Navbar from "./components/Navbar";
@@ -18,6 +19,7 @@ export default function App() {
       <Work />
       <Projects />
       <Contact />
+      <Analytics />
     </div>
   );
 }
