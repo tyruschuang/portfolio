@@ -1,73 +1,55 @@
-# React + TypeScript + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio site for Tyrus Chuang — AI-forward engineer.
 
-Currently, two official plugins are available:
+Built with React, TypeScript, Tailwind CSS v4, and Framer Motion. Styled with Playfair Display + Outfit on a warm off-white palette with terracotta accents.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **Generative flow field** — canvas-based particle animation on the hero, driven by Perlin noise
+- **Magnetic cursor** — custom cursor that snaps toward interactive elements
+- **Scroll progress bar** — thin progress indicator across the top of the viewport
+- **Text scramble effect** — headline characters randomize then resolve on load
+- **Animated stat counters** — numbers count up into view on the hero section
+- **Tilt cards** — perspective transforms on project cards that follow the pointer
+- **Reduced motion support** — all animation respects `prefers-reduced-motion`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack
 
-## Expanding the ESLint configuration
+| Layer       | Tech                              |
+| ----------- | --------------------------------- |
+| Framework   | React 19 + TypeScript             |
+| Build       | Vite 7                            |
+| Styling     | Tailwind CSS 4                    |
+| Animation   | Framer Motion 12                  |
+| Canvas      | Vanilla 2D context (Perlin noise) |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+yarn install
+yarn dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open [http://localhost:5173](http://localhost:5173).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Command        | Description                  |
+| -------------- | ---------------------------- |
+| `yarn dev`     | Start dev server             |
+| `yarn build`   | Type-check & production build|
+| `yarn preview` | Preview production build     |
+| `yarn lint`    | Run ESLint                   |
+
+## Project Structure
+
+```
+src/
+├── components/    # Reusable UI (cursor, navbar, cards, animations)
+├── sections/      # Page sections (Hero, About, Work, Projects, Contact)
+├── data/          # Content & copy
+├── lib/           # Utilities (easing, Perlin noise)
+├── App.tsx
+└── main.tsx
 ```
