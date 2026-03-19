@@ -50,7 +50,7 @@ function FlowFieldArt({
   sectionRef: React.RefObject<HTMLElement | null>;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const mouseRef = useRef({ x: -9999, y: -9999 });
+  const clientMouse = useRef({ x: -9999, y: -9999, active: false });
   const smoothMouse = useRef({ x: -9999, y: -9999 });
 
   useEffect(() => {
@@ -62,7 +62,6 @@ function FlowFieldArt({
 
     let w: number, h: number;
     let animId: number;
-    let canvasRect = { left: 0, top: 0 };
 
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
@@ -71,43 +70,21 @@ function FlowFieldArt({
       canvas.width = w * dpr;
       canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const rect = canvas.getBoundingClientRect();
-      canvasRect = { left: rect.left, top: rect.top };
     };
     resize();
     window.addEventListener("resize", resize);
 
-    let lastClient = { x: -9999, y: -9999 };
-    let mouseActive = false;
-
-    const updateMouseFromClient = () => {
-      if (!mouseActive) return;
-      const rect = canvas.getBoundingClientRect();
-      mouseRef.current.x = lastClient.x - rect.left;
-      mouseRef.current.y = lastClient.y - rect.top;
-    };
-
     const handleMouseMove = (e: MouseEvent) => {
-      lastClient.x = e.clientX;
-      lastClient.y = e.clientY;
-      mouseActive = true;
-      mouseRef.current.x = e.clientX - canvasRect.left;
-      mouseRef.current.y = e.clientY - canvasRect.top;
+      clientMouse.current.x = e.clientX;
+      clientMouse.current.y = e.clientY;
+      clientMouse.current.active = true;
     };
     const handleMouseLeave = () => {
-      mouseActive = false;
-      mouseRef.current.x = -9999;
-      mouseRef.current.y = -9999;
-    };
-    const handleScroll = () => {
-      const rect = canvas.getBoundingClientRect();
-      canvasRect = { left: rect.left, top: rect.top };
-      updateMouseFromClient();
+      clientMouse.current.active = false;
     };
 
     section.addEventListener("mousemove", handleMouseMove);
     section.addEventListener("mouseleave", handleMouseLeave);
-    window.addEventListener("scroll", handleScroll, { passive: true });
 
     let time = 0;
     const PUSH_STRENGTH = 55;
@@ -118,11 +95,19 @@ function FlowFieldArt({
       ctx.clearRect(0, 0, w, h);
       time += 0.0015;
 
+      let targetX = -9999;
+      let targetY = -9999;
+      if (clientMouse.current.active) {
+        const rect = canvas.getBoundingClientRect();
+        targetX = clientMouse.current.x - rect.left;
+        targetY = clientMouse.current.y - rect.top;
+      }
+
       const lerp = 0.18;
       smoothMouse.current.x +=
-        (mouseRef.current.x - smoothMouse.current.x) * lerp;
+        (targetX - smoothMouse.current.x) * lerp;
       smoothMouse.current.y +=
-        (mouseRef.current.y - smoothMouse.current.y) * lerp;
+        (targetY - smoothMouse.current.y) * lerp;
       const mx = smoothMouse.current.x;
       const my = smoothMouse.current.y;
       const cursorActive = mx > -5000;
@@ -186,7 +171,6 @@ function FlowFieldArt({
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", resize);
-      window.removeEventListener("scroll", handleScroll);
       section.removeEventListener("mousemove", handleMouseMove);
       section.removeEventListener("mouseleave", handleMouseLeave);
     };
