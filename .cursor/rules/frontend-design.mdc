@@ -1,0 +1,43 @@
+---
+description: Create distinctive, production-grade frontend interfaces with high design quality. Generates creative, polished code that avoids generic AI aesthetics.
+alwaysApply: true
+---
+
+# Frontend Design
+
+Build distinctive, production-grade interfaces that avoid generic "AI slop" aesthetics. Every design decision must be intentional.
+
+## Design Thinking (Before Coding)
+
+1. **Purpose**: What problem does this interface solve? Who uses it?
+2. **Tone**: Pick an extreme — brutally minimal, maximalist chaos, retro-futuristic, organic/natural, luxury/refined, playful/toy-like, editorial/magazine, brutalist/raw, art deco/geometric, soft/pastel, industrial/utilitarian, etc. Use these for inspiration but design one true to the aesthetic direction.
+3. **Constraints**: Technical requirements (framework, performance, accessibility).
+4. **Differentiation**: What makes this UNFORGETTABLE? What's the one thing someone will remember?
+
+**CRITICAL**: Choose a clear conceptual direction and execute it with precision. Bold maximalism and refined minimalism both work — the key is intentionality, not intensity.
+
+Then implement working code that is production-grade and functional, visually striking and memorable, cohesive with a clear aesthetic point-of-view, and meticulously refined in every detail.
+
+## Aesthetics Guidelines
+
+- **Typography**: Choose beautiful, distinctive fonts. NEVER default to Inter, Roboto, Arial, or system fonts. Pair a characterful display font with a refined body font.
+- **Color**: Commit to a cohesive aesthetic. Use CSS variables for consistency. Dominant colors with sharp accents outperform timid, evenly-distributed palettes. NEVER use cliched purple gradients on white.
+- **Motion**: Use animations for effects and micro-interactions. Prioritize CSS-only solutions for HTML, Motion library for React. Focus on high-impact moments: one well-orchestrated page load with staggered reveals (animation-delay) creates more delight than scattered micro-interactions. Use scroll-triggering and hover states that surprise.
+- **Spatial Composition**: Unexpected layouts. Asymmetry. Overlap. Diagonal flow. Grid-breaking elements. Generous negative space OR controlled density — never lukewarm in-between.
+- **Backgrounds & Texture**: Create atmosphere and depth with gradient meshes, noise textures, geometric patterns, layered transparencies, dramatic shadows, decorative borders, custom cursors, and grain overlays. Never default to flat solid colors.
+
+## Anti-Patterns (NEVER Do These)
+
+- Generic font families (Inter, Roboto, Arial, Space Grotesk, system fonts)
+- Cliched color schemes (purple gradients on white)
+- Predictable layouts and cookie-cutter component patterns
+- Converging on the same design choices across different generations
+- Complexity mismatched to vision (maximalist designs need elaborate code; minimalist designs need restraint and precision)
+
+## Execution
+
+- Match implementation complexity to the aesthetic vision
+- Vary between light/dark themes, different fonts, different aesthetics across projects
+- Interpret creatively and make unexpected choices genuinely designed for the context
+- Every detail matters: spacing, shadows, borders, transitions, cursor styles
+- No design should be the same — don't hold back. Show what can truly be created when thinking outside the box and committing fully to a distinctive vision.
